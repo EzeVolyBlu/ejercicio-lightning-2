@@ -1,0 +1,11 @@
+<aura:component>
+    
+    <aura:attribute name="type" type="String"/>
+    <!-- <aura:attribute name="icon" type="String"/> -->
+
+    <aura:registerEvent name="onclick" type="c:btnTimerEvent" />
+    
+    <lightning:button class="slds-button slds-button_outline-brand" label="{! v.type }" onclick="{!c.handleButtonClick}">
+        <lightning:icon iconName="{! 'utility:' +  v.type }" size="medium" alternativeText="{! v.type }"/>
+    </lightning:button>
+</aura:component>	

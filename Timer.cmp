@@ -1,0 +1,53 @@
+<aura:component controller="TimerController">
+
+    <aura:attribute name="time" type="long" default="10800000" />
+    <aura:attribute name="timeInterval" type="long" default="10800000" />
+    <aura:attribute name="timerOn" type="boolean" default="false" />
+
+    
+    
+    
+    <div class="slds-box slds-theme_shade slds-m-around_small" style="width: 25%;">
+
+        <span>Status: </span>
+        <aura:if isTrue="{!v.timerOn}">
+            On
+            <aura:set attribute="else">
+                Off
+            </aura:set>
+        </aura:if> 
+    
+        <br/>
+
+        <span>Timer: </span>
+        <lightning:formattedDateTime value="{! v.time }" 
+                                    hour="2-digit" 
+                                    minute="2-digit" 
+                                    second="2-digit" 
+                                    hour12="false"
+        />
+        <br/>
+        <span>Time amount: </span>
+        <lightning:formattedDateTime value="{! v.timeInterval }" 
+                                    hour="2-digit" 
+                                    minute="2-digit" 
+                                    second="2-digit" 
+                                    hour12="false"
+        />
+        <br/>
+    
+        <c:TimerBtn type="play" onclick="{!c.handlePlay}" />
+        <c:TimerBtn type="pause" onclick="{!c.handlePause}" />
+        <c:TimerBtn type="stop" onclick="{!c.handleStop}" />
+
+        <div aura:id="div1" onclick="{!c.closemessage}"></div>
+
+    </div>
+
+
+
+
+
+    
+</aura:component>	
+
